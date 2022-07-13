@@ -37,7 +37,7 @@ export default function App() {
           <Route exact path="/list">
             <ListPage />
           </Route>
-          <Route exact path="/detail">
+          <Route exact path="/episode/:_id">
             <DetailPage />
           </Route>
         </Switch>
