@@ -20,10 +20,10 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/list">List</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/detail">Detail?</Link>
             </li>
           </ul>
         </nav>
