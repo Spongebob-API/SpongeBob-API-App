@@ -1,7 +1,8 @@
-import React from 'react';
+export async function fetchShows() {
 
-export default function FetchUtils() {
-  return (
-    <div>FetchUtils</div>
-  );
+  const rawData = await fetch(`/.netlify/functions/spongebob`);
+  
+  const data = await rawData.json();
+  
+  return data;
 }

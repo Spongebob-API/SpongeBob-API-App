@@ -6,6 +6,10 @@ import {
   Link
 } from 'react-router-dom';
 
+import AuthPage from './AuthPage';
+import DetailPage from './DetailPage';
+import ListPage from './ListPage';
+
 export default function App() {
   return (
     <Router>
@@ -16,10 +20,10 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/list">List</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/detail">Detail?</Link>
             </li>
           </ul>
         </nav>
@@ -27,29 +31,18 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route exact path="/">
+            <AuthPage />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route exact path="/list">
+            <ListPage />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route exact path="/episode/:_id">
+            <DetailPage />
           </Route>
         </Switch>
+        
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
