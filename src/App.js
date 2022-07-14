@@ -24,7 +24,7 @@ export default function App() {
               <Link to="/list">List</Link>
             </li>
             <li>
-              <Link to="/detail">Detail?</Link>
+              <Link to="/detail">Detail</Link>
             </li>
           </ul>
         </nav>
@@ -38,7 +38,7 @@ export default function App() {
           <Route exact path="/list">
             <ListPage />
           </Route>
-          <Route exact path="/episode/:_id">
+          <Route exact path="/episode/:number">
             <DetailPage />
           </Route>
         </Switch>
