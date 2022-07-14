@@ -6,6 +6,14 @@ export async function fetchShows() {
   return data;
 }
 
+export async function fetchSingleEpisode(number) {
+  const rawData = await fetch(`/.netlify/functions/episode?episodeQuery=${number}`);
+
+  const data = await rawData.json();
+
+  return data;
+}
+
 export async function signUpUser(email, password) {
   const { user } = await client.auth.signUp({ email, password });
   await createProfile(email);
