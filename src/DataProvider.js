@@ -7,6 +7,7 @@ const DataContext = createContext();
 export default function DataProvider({ children }) {
   const [user, setUser] = useState(getUser());
   const [favorites, setFavorites] = useState([]);
+  console.log(user);
 
   async function handleAddToFavorites(favorite) {
     await createFavorite(favorite);

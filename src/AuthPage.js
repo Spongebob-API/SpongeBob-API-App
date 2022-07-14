@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { signInUser, signUpUser } from './services/FetchUtils';
+import { useDataContext } from './DataProvider';
 import backgroundImg from './background2.jpg';
 
 import './Amanda.css';
@@ -9,7 +10,8 @@ export default function AuthPage() {
   const [signInPass, setSignInPass] = useState('');
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
-  const [currentUser, setCurrentUser] = useState([]);
+  const { setUser } = useDataContext();
+  // console.log(setUser); undefined
 
   function clearForms() {
     setSignInEmail('');
@@ -21,17 +23,16 @@ export default function AuthPage() {
   async function handleSignUp(e) {
     e.preventDefault();
     const user = await signUpUser(signUpEmail, signUpPass);
-    setCurrentUser(user);
+    setUser(user);
+    console.log(user);
     clearForms();
-    return currentUser;
   }
 
   async function handleSignIn(e) {
     e.preventDefault();
     const user = await signInUser(signInEmail, signInPass);
-    setCurrentUser(user);
+    setUser(user);
     clearForms();
-    return currentUser;
   }
 
   return (
