@@ -1,18 +1,5 @@
+import { useState } from 'react';
 import { client } from './client';
-
-export async function fetchShows() {
-  const rawData = await fetch(`/.netlify/functions/spongebob`);
-  const data = await rawData.json();
-  return data;
-}
-
-export async function fetchSingleEpisode(number) {
-  const rawData = await fetch(`/.netlify/functions/episode?episodeQuery=${number}`);
-
-  const data = await rawData.json();
-
-  return data;
-}
 
 export async function signUpUser(email, password) {
   const { user } = await client.auth.signUp({ email, password });
@@ -30,6 +17,39 @@ export async function createProfile(email) {
   return body;
 }
 
-export function getUser() {
+export async function fetchShows() {
+  const rawData = await fetch(`/.netlify/functions/spongebob`);
+  const data = await rawData.json();
+  return data;
+}
+
+export async function fetchSingleEpisode(number) {
+  const rawData = await fetch(`/.netlify/functions/episode?episodeQuery=${number}`);
+
+  const data = await rawData.json();
+
+  return data;
+}
+export async function getFavorites(id) {
+
+
+  if (id) {
+    const { body } = await client.from('favorites').select('*').match({ user_id: id });
+
+    return body;
+  } else {
+    const { body } = await client.from('favorites').select('*').match({ user_id: getUser().id });
+
+    return body;
+  }
+}
+
+export async function handleFetchFavorites(id) {
+  const favorites = await getFavorites(id);
+
+  setFavorites(favorites);
+}
+
+export async function getUser() {
   return client.auth.user();
 }
