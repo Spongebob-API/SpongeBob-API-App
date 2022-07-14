@@ -22,6 +22,7 @@ export default function AuthPage() {
     const user = await signUpUser(signUpEmail, signUpPass);
     setCurrentUser(user);
     clearForms();
+    return curretUser;
   }
 
   async function handleSignIn(e) {
@@ -29,6 +30,7 @@ export default function AuthPage() {
     const user = await signInUser(signInEmail, signInPass);
     setCurrentUser(user);
     clearForms();
+    return curretUser;
   }
 
 
