@@ -1,0 +1,43 @@
+@keyframes slide {
+  0% {
+    top: -20px;
+    left: 0%;
+  }
+  50% {
+    top: 0px;
+    left: 20%;
+  }
+  100% {
+    top: -20px;
+    left: 0%;
+  }
+}
+.header {
+  /* font-family: ‘Rubik Moonrocks’, cursive; */
+  font-size: 65px;
+  position: relative;
+  animation-name: slide;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  background: -webkit-linear-gradient(blue, pink);
+  background-clip: content-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.SpongeBob {
+  border: 4px dotted blue;
+}
+.signIn {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.signUp {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.button {
+  width: 200px;
+  margin: 5px;
+}
