@@ -20,10 +20,12 @@ export async function createProfile(email) {
   return body;
 }
 
-export async function fetchShows() {
+export async function fetchShows(title) {
   const rawData = await fetch(`/.netlify/functions/spongebob`);
   const data = await rawData.json();
-  return data;
+  if (title){
+    return data.episodes.filter(episode => episode.name.toLowerCase().includes(title.toLowerCase()));
+  } else return data.episodes;
 }
 
 export async function fetchSingleEpisode(number) {
