@@ -11,7 +11,6 @@ export default function AuthPage() {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
   const [curretUser, setCurrentUser] = useState([]);
-  const [user] = useState('');
 
   function clearForms() {
     setSignInEmail('');
