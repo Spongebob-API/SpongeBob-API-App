@@ -7,7 +7,6 @@ import './App.css';
 
 import AuthPage from './AuthPage';
 import DetailPage from './DetailPage';
-import ListPage from './ListPage';
 import FavoritesPage from './FavoritesPage';
 import SearchPage from './SearchPage';
 
@@ -45,7 +44,7 @@ export default function App() {
             {user ? <Redirect to="/list" /> : <AuthPage />}
           </Route>
           <Route exact path="/list">
-            {!user ? <Redirect to="/" /> : <ListPage />}
+            {!user ? <Redirect to="/" /> : <SearchPage />}
           </Route>
           <Route exact path="/episode/:number">
             {!user ? <Redirect to="/" /> : <DetailPage />}

@@ -24,7 +24,6 @@ export default function AuthPage() {
     e.preventDefault();
     const user = await signUpUser(signUpEmail, signUpPass);
     setUser(user);
-    console.log(user);
     clearForms();
   }
 

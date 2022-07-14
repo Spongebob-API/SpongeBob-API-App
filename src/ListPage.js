@@ -1,20 +1,9 @@
-import { useEffect, useState } from 'react';
-import { fetchShows } from './services/FetchUtils';
+// import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function ListPage() {
+export default function ListPage({ episodes }) {
 
-  const [episodes, setEpisodes] = useState();
 
-  async function fetch() {
-    const data = await fetchShows();
-    // eslint-disable-next-line no-console
-    console.log(data);
-    setEpisodes(data.episodes);
-  }
-  useEffect(() => {
-    fetch();
-  }, []);
 
   return (
     <div className='shows'>
