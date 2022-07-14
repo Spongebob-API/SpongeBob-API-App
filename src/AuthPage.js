@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { signInUser, signUpUser } from './services/FetchUtils';
+import './Amanda.css';
+import backgroundImg from './background2.jpg';
 
 
 
@@ -9,6 +11,7 @@ export default function AuthPage() {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPass, setSignUpPass] = useState('');
   const [curretUser, setCurrentUser] = useState([]);
+  const [user] = useState('');
 
   function clearForms() {
     setSignInEmail('');
@@ -37,7 +40,9 @@ export default function AuthPage() {
 
 
   return (
-    <div className='AuthPage'>
+    <div className='AuthPage' style={{ backgroundImage: `url(${backgroundImg})` }}>
+      <h1 className='header'>SpongeBob APi Search</h1>
+      <img className='SpongeBob' src={'./images/captain.jpg'} height='200'/>
       <form onSubmit={handleSignUp} className='signUp'>
         <label>
                 E-mail
@@ -47,7 +52,7 @@ export default function AuthPage() {
             password
           <input value={signUpPass} type='password' onChange={e => setSignUpPass(e.target.value)}/>
         </label>
-        <button>SIGN UP!</button>
+        <button className='button'>SIGN UP!</button>
       </form>
       <form onSubmit={handleSignIn} className='signIn'>
         <label>
@@ -58,7 +63,7 @@ export default function AuthPage() {
             password
           <input value={signInPass} type='password' onChange={e => setSignInPass(e.target.value)}/>
         </label>
-        <button>SIGN IN!</button>
+        <button className='button'>SIGN IN!</button>
       </form>
     </div>
   );

@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import './App.css';
 
 import AuthPage from './AuthPage';
 import DetailPage from './DetailPage';
