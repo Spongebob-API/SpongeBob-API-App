@@ -30,9 +30,20 @@ export async function fetchSingleEpisode(number) {
 
   return data;
 }
+
+export async function createFavorite(favorite) {
+  const { body } = await client.from('favorites').insert(favorite);
+
+  return body;
+}
+
+export async function deleteFavorite(id) {
+  const { body } = await client.from('favorites').delete().match({ id }).single();
+
+  return body;
+}
+
 export async function getFavorites(id) {
-
-
   if (id) {
     const { body } = await client.from('favorites').select('*').match({ user_id: id });
 
@@ -47,7 +58,7 @@ export async function getFavorites(id) {
 export async function handleFetchFavorites(id) {
   const favorites = await getFavorites(id);
 
-  setFavorites(favorites);
+  getFavorites(favorites);
 }
 
 export async function getUser() {
